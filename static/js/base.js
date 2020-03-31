@@ -1,1 +1,1 @@
-Vue.mixin({ delimiters: ['||','||'] });
+Vue.mixin({ delimiters: ['{','}'] });

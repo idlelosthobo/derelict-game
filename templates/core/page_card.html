@@ -1,0 +1,18 @@
+{% extends base.html %}
+
+{% block container %}
+   <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-divider">
+                    {% block page_card_header %}
+                    {% endblock %}
+                </div>
+                <div class="card-section">
+                    {% block page_card_content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
