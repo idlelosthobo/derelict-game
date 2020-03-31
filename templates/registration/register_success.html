@@ -1,0 +1,23 @@
+{% extends "core/page_card.html" %}
+
+{% block base_title %}
+    Thank You
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block page_card_header %}
+    <div class="text-center p-3">
+        Registration Successful<br/><br />
+        Thank you for registering to gain access to the Epiphany Group Portal.<br /><br />
+        Please reach out to your designated representative to have your account activated.<br />
+    </div>
+{% endblock %}
+
+{% block page_card_content %}
+
+    <div class="card-footer text-center ">
+        <p>If you are already active go <a href="/accounts/login">Here</a> to login.</p>
+    </div>
+
+{% endblock %}

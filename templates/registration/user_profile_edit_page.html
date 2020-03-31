@@ -1,0 +1,21 @@
+{%  extends 'core/page_full.html' %}
+
+{% load static %}
+
+{% block css_include %}
+    {{ form.media.css }}
+{% endblock %}
+
+{% block base_title %}
+    Edit Building
+{% endblock %}
+
+{% block page_full_content %}
+    {{ form.value }}
+    {% include 'core/card/card_form.html' with form=form form_2=form_2 card_form_title='Edit User Profile' card_form_button='Update' %}
+{% endblock %}
+
+
+{% block js_include %}
+    {{ form.media.js }}
+{% endblock %}

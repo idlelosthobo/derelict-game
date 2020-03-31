@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'crispy_forms',
     'app.core.apps.CoreConfig',
     'app.chat.apps.ChatConfig',
     'app.character.apps.CharacterConfig',
-    'app.account.apps.AccountConfig',
+    'app.registration.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,11 @@ if not DEBUG:
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 else:
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
+# Other Settings
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"
