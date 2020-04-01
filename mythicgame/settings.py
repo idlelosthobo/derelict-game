@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'app.chat.apps.ChatConfig',
     'app.character.apps.CharacterConfig',
     'app.registration.apps.AccountConfig',
+    'app.ui.apps.UiConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,37 +1,21 @@
 {% extends 'core/base.html' %}
 
-{% block title %}
-    Vue Ajax Test
+{% load static %}
+
+
+{% block base_title %}
 {% endblock %}
 
-{% block container %}
-    <div class="row">
-        <div class="col-md-3" v-for="result in results">
-          <div class="card">
-            <div class="card-divider">
-              { result.type }
-            </div>
-            <div class="card-section">
-              <p>
-                  { result.message }
-              </p>
-            </div>
-          </div>
-        </div>
-    </div>
+{% block css_include %}
+    <link rel="stylesheet" href="{% static 'css/page.css' %}">
 {% endblock %}
 
-{% block js_script %}
-<script>
-    const vm = new Vue({
-      el: '#app',
-      data: {
-        results: []
-      },
-      mounted() {
-        axios.get("http://127.0.0.1:8000/api/message/")
-        .then(response => {this.results = response.data})
-      }
-    });
-</script>
+{% block base_content %}
+    {{ block.super }}
+    {% block page_content %}
+    {% endblock %}
+{% endblock %}
+
+{% block js_include %}
+    <script src="{% static 'js/page.js' %}"></script>
 {% endblock %}
