@@ -1,0 +1,22 @@
+{% extends "core/page_card.html" %}
+
+{% block base_title %}
+    Create Character
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block page_card_header %}
+    Create New Character
+{% endblock %}
+
+{% block page_card_content %}
+     <form method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-success">Create</button>
+    </form>
+{% endblock %}
+
+{% block page_card_footer %}
+{% endblock %}

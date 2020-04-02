@@ -1,0 +1,8 @@
+{% extends 'core/card/card.html' %}
+
+{% block card_main_title %}
+    <div class="card-header bg-100 p-2">
+        <div class="float-right m-0 p-0">{% block card_title_button %}{% endblock %}</div>
+        <h5 class="mb-0 p-1">{% block card_title %}{% endblock %}</h5>
+    </div>
+{% endblock %}

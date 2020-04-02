@@ -19,6 +19,11 @@ urlpatterns += [
     path('accounts/', include('app.registration.urls')),
 ]
 
+# Character
+urlpatterns += [
+    path('character/', include('app.character.urls')),
+]
+
 # Ui
 urlpatterns += [
     path('ui/', include('app.ui.urls')),

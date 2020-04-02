@@ -7,3 +7,10 @@ class CharacterAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Character, CharacterAdmin)
+
+
+class CharacterClassAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+
+admin.site.register(models.CharacterClass, CharacterClassAdmin)

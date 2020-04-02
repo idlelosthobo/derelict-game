@@ -1,0 +1,21 @@
+{% extends "core/page_card.html" %}
+
+{% block base_title %}
+    Character Select
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block page_card_header %}
+    Character Select
+{% endblock %}
+
+{% block page_card_content %}
+    {% for character in character_list %}
+        <a href="{% url 'character_pick' pk=character.id %}">{{ character }}</a><br />
+    {% endfor %}
+{% endblock %}
+
+{% block page_card_footer %}
+    <p>Create New Character <a href="{% url 'character_create_view' %}">Here</a></p>
+{% endblock %}
