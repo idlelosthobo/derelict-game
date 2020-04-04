@@ -1,3 +1,14 @@
+html {
+    height: 100vh;
+}
+
 body {
+    height: 100vh;
     background: #DFF;
 }
+
+.container-fluid {
+    height: 100vh;
+    overflow: auto;
+}
+

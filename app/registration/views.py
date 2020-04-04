@@ -1,5 +1,7 @@
 from app.registration.forms import RegisterForm, UserEditForm
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login
+from app.player.models import Player
+from django.shortcuts import render, redirect, reverse
 
 
 def register(response):
@@ -7,12 +9,16 @@ def register(response):
         form = RegisterForm(response.POST)
 
         if form.is_valid():
-            user = form.save()
-            user.is_employee = False
-            user.is_active = False
-            user.save()
+            user_form = form.save()
+            user_form.is_employee = False
+            user_form.save()
 
-            return redirect("/accounts/register_success")
+            user = authenticate(username=response.POST['username'], password=response.POST['password1'])
+
+            player = Player(user=user)
+            player.save()
+
+            return redirect(reverse('character_select_view'))
 
         else:
 

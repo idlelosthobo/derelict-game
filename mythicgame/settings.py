@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-# Application definition
+# Django Application Definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,12 +37,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+# 3rd Party Application Definition
+
+INSTALLED_APPS += [
     'rest_framework',
     'crispy_forms',
+]
+
+# Mythic Application Definition
+
+INSTALLED_APPS += [
     'app.core.apps.CoreConfig',
     'app.chat.apps.ChatConfig',
     'app.character.apps.CharacterConfig',
     'app.registration.apps.RegistrationConfig',
+    'app.ui.apps.UiConfig',
+    'app.player.apps.PlayerConfig',
 ]
 
 MIDDLEWARE = [
@@ -151,5 +163,5 @@ else:
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/character/select/"
 LOGOUT_REDIRECT_URL = "/accounts/login/"

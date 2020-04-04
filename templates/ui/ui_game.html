@@ -1,0 +1,22 @@
+{% extends 'ui/ui.html' %}
+
+{% block ui_content %}
+    <div class="row p-0 m-0 ui-header">
+        <div class="col-12 bg-danger">
+            HEADER<br />
+            <a href="{% url 'logout' %}">Logout</a><br />
+            <a href="/admin/" target="_blank">Admin</a><br />
+        </div>
+    </div>
+    <div class="row p-0 m-0 ui-main">
+        <div class="col-sm-4 h-100 bg-primary">
+            Chat
+        </div>
+        <div class="col-sm-4 h-100 bg-success">
+            Game
+        </div>
+        <div class="col-sm-4 h-100 bg-warning">
+            Character
+        </div>
+    </div>
+{% endblock %}

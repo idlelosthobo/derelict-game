@@ -1,24 +1,22 @@
 {% extends "core/page_card.html" %}
 
 {% block base_title %}
-    Login
+    Create Character
 {% endblock %}
 
 {% load crispy_forms_tags %}
 
 {% block page_card_header %}
-    Project Mythic Login
+    Create New Character
 {% endblock %}
 
 {% block page_card_content %}
      <form method="post">
         {% csrf_token %}
         {{form|crispy}}
-        <button type="submit" class="btn btn-success">Login</button>
+        <button type="submit" class="btn btn-success">Create</button>
     </form>
 {% endblock %}
 
 {% block page_card_footer %}
-    <p>Register for an Account <a href="/accounts/register">Here</a></p>
-    <p><a href="/accounts/password_reset">Forgot My Password</a></p>
 {% endblock %}

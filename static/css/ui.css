@@ -1,0 +1,7 @@
+.ui-header {
+    height: 100px;
+}
+
+.ui-main {
+    height: calc(100% - 100px);
+}
