@@ -1,9 +1,9 @@
 .ui-header {
-    height: 100px;
+    height: 50px;
 }
 
 .ui-main {
-    height: calc(100% - 100px);
+    height: calc(100% - 50px);
 }
 
 .ui-message-input {
