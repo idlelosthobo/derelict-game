@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Perk(models.Model):
-    name = models.CharField(max_length=32, default='')
+    name = models.CharField(max_length=32, default='', unique=True)
     description = models.TextField(default='')
 
     def __str__(self):
@@ -11,7 +11,7 @@ class Perk(models.Model):
 
 
 class Quirk(models.Model):
-    name = models.CharField(max_length=32, default='')
+    name = models.CharField(max_length=32, default='', unique=True)
     description = models.TextField(default='')
 
     def __str__(self):
@@ -19,7 +19,7 @@ class Quirk(models.Model):
 
 
 class Aspect(models.Model):
-    name = models.CharField(max_length=32, default='')
+    name = models.CharField(max_length=32, default='', unique=True)
     description = models.TextField(default = '')
     perk_1 = models.ForeignKey(Perk, on_delete=models.CASCADE, related_name='perk_1')
     perk_2 = models.ForeignKey(Perk, on_delete=models.CASCADE, related_name='perk_2')
@@ -33,15 +33,15 @@ class Aspect(models.Model):
 
 
 class Alignment(models.Model):
-    name = models.CharField(max_length=32, default='')
-    description = models.TextField(default = '')
+    name = models.CharField(max_length=32, default='', unique=True)
+    description = models.TextField(default='')
 
     def __str__(self):
         return self.name;
 
 
 class CharacterClass(models.Model):
-    name = models.CharField(max_length=16, default='')
+    name = models.CharField(max_length=16, default='', unique=True)
 
     def __str__(self):
         return self.name;
@@ -52,7 +52,7 @@ class Character(models.Model):
     character_class = models.ForeignKey(CharacterClass, on_delete=models.CASCADE)
     aspect = models.ForeignKey(Aspect, on_delete=models.CASCADE, blank=True, null=True)
     alignment = models.ForeignKey(Alignment, on_delete=models.CASCADE, blank=True, null=True)
-    name = models.CharField(max_length=16, default='')
+    name = models.CharField(max_length=16, default='', unique=True)
 
     def __str__(self):
         return self.name;

@@ -5,3 +5,11 @@
 .ui-main {
     height: calc(100% - 100px);
 }
+
+.ui-message-input {
+    height: 100px;
+}
+
+.ui-message-display {
+    height: calc(100% - 100px);
+}

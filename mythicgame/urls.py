@@ -11,7 +11,7 @@ admin.site.index_title = "Welcome to the System Administration Portal"
 urlpatterns = [
  path('', home, name='home'),
  path('admin/', admin.site.urls),
- path('api/', include(router.urls)),
+ path('api/', include(router.urls), name='api'),
 ]
 
 # Account

@@ -1,0 +1,13 @@
+{% extends 'core/card/card.html' %}
+
+{% block card_content %}
+    <div class="row p-0 mb-1">
+        <div class="col-12 p-0 m-0">
+            <div id="app-6" class="form-group p-0 m-0">
+                <label for="message_input">Message</label>
+                <input id="message_input" class="form-control p-1 mb-0" v-on:keydown.enter="send_message()"
+                       v-model="message_input">
+            </div>
+        </div>
+    </div>
+{% endblock %}
