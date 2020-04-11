@@ -20,7 +20,7 @@ class Quirk(models.Model):
 
 class Aspect(models.Model):
     name = models.CharField(max_length=32, default='', unique=True)
-    description = models.TextField(default = '')
+    description = models.TextField(default='')
     perk_1 = models.ForeignKey(Perk, on_delete=models.CASCADE, related_name='perk_1')
     perk_2 = models.ForeignKey(Perk, on_delete=models.CASCADE, related_name='perk_2')
     perk_3 = models.ForeignKey(Perk, on_delete=models.CASCADE, related_name='perk_3')
