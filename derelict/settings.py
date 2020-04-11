@@ -67,7 +67,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'mythicgame.urls'
+ROOT_URLCONF = 'derelict.urls'
 
 TEMPLATES = [
     {
@@ -86,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mythicgame.wsgi.application'
+WSGI_APPLICATION = 'derelict.wsgi.application'
 
 
 # Database
@@ -95,9 +95,9 @@ WSGI_APPLICATION = 'mythicgame.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'development_mythic',
-        'USER': 'mythicaccess',
-        'PASSWORD': 'krwf2r1gvvfay9k3',
+        'NAME': 'development_derelict',
+        'USER': 'derelictaccess',
+        'PASSWORD': 'yfrioa1j5176mqwr',
         'HOST': 'db-mysql-tor1-30973-do-user-6683175-0.db.ondigitalocean.com',
         'PORT': '25060',
     }
