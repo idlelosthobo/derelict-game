@@ -28,3 +28,8 @@ urlpatterns += [
 urlpatterns += [
     path('ui/', include('app.ui.urls')),
 ]
+
+# Other
+urlpatterns += [
+    path('palette/', generic.TemplateView.as_view(template_name='palette.html')),
+]

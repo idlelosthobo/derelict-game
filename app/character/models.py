@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from app.skill.models import Skill
+
+CHARACTER_STAT_DIGITS = 4
+CHARACTER_STAT_DECIMALS = 1
 
 
 class Perk(models.Model):
@@ -7,7 +11,7 @@ class Perk(models.Model):
     description = models.TextField(default='')
 
     def __str__(self):
-        return self.name;
+        return self.name
 
 
 class Quirk(models.Model):
@@ -15,46 +19,36 @@ class Quirk(models.Model):
     description = models.TextField(default='')
 
     def __str__(self):
-        return self.name;
-
-
-class Aspect(models.Model):
-    name = models.CharField(max_length=32, default='', unique=True)
-    description = models.TextField(default='')
-    perk_1 = models.ForeignKey(Perk, on_delete=models.CASCADE, related_name='perk_1')
-    perk_2 = models.ForeignKey(Perk, on_delete=models.CASCADE, related_name='perk_2')
-    perk_3 = models.ForeignKey(Perk, on_delete=models.CASCADE, related_name='perk_3')
-    quirk_1 = models.ForeignKey(Quirk, on_delete=models.CASCADE, related_name='quirk_1')
-    quirk_2 = models.ForeignKey(Quirk, on_delete=models.CASCADE, related_name='quirk_2')
-    quirk_3 = models.ForeignKey(Quirk, on_delete=models.CASCADE, related_name='quirk_3')
-
-    def __str__(self):
-        return self.name;
-
-
-class Alignment(models.Model):
-    name = models.CharField(max_length=32, default='', unique=True)
-    description = models.TextField(default='')
-
-    def __str__(self):
-        return self.name;
+        return self.name
 
 
 class CharacterClass(models.Model):
     name = models.CharField(max_length=16, default='', unique=True)
+    brute = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    finesse = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    brilliance = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    grit = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    expertise = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
 
     def __str__(self):
-        return self.name;
+        return self.name
 
 
 class Character(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     character_class = models.ForeignKey(CharacterClass, on_delete=models.CASCADE)
-    aspect = models.ForeignKey(Aspect, on_delete=models.CASCADE, blank=True, null=True)
-    alignment = models.ForeignKey(Alignment, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=16, default='', unique=True)
+    brute = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    finesse = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    brilliance = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    grit = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    expertise = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
 
     def __str__(self):
-        return self.name;
+        return self.name
 
 
+class CharacterSkill(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+    skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    rank = models.IntegerField(default=1)

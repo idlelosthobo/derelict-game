@@ -55,6 +55,12 @@ INSTALLED_APPS += [
     'app.registration.apps.RegistrationConfig',
     'app.ui.apps.UiConfig',
     'app.player.apps.PlayerConfig',
+    'app.skill.apps.SkillConfig',
+    'app.npc.apps.NpcConfig',
+    'app.mission.apps.MissionConfig',
+    'app.team.apps.GroupConfig',
+    'app.instance.apps.InstanceConfig',
+
 ]
 
 MIDDLEWARE = [
