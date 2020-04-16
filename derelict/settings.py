@@ -46,7 +46,7 @@ INSTALLED_APPS += [
     'crispy_forms',
 ]
 
-# Mythic Application Definition
+# Derelict Application Definition
 
 INSTALLED_APPS += [
     'app.core.apps.CoreConfig',
@@ -60,7 +60,7 @@ INSTALLED_APPS += [
     'app.mission.apps.MissionConfig',
     'app.team.apps.GroupConfig',
     'app.instance.apps.InstanceConfig',
-
+    'app.item.apps.ItemConfig',
 ]
 
 MIDDLEWARE = [

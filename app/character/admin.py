@@ -28,3 +28,10 @@ class QuirkAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Quirk, QuirkAdmin)
+
+
+class CharacterSkillAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(models.CharacterSkill, CharacterSkillAdmin)

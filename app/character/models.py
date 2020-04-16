@@ -24,11 +24,11 @@ class Quirk(models.Model):
 
 class CharacterClass(models.Model):
     name = models.CharField(max_length=16, default='', unique=True)
-    brute = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
-    finesse = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
-    brilliance = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
-    grit = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
-    expertise = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    brute = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    finesse = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    brilliance = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    grit = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    expertise = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
 
     def __str__(self):
         return self.name
@@ -38,11 +38,12 @@ class Character(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     character_class = models.ForeignKey(CharacterClass, on_delete=models.CASCADE)
     name = models.CharField(max_length=16, default='', unique=True)
-    brute = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
-    finesse = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
-    brilliance = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
-    grit = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
-    expertise = models.DecimalField(max_digits=CHARACTER_STAT_DECIMALS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    brute = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    finesse = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    brilliance = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    grit = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    expertise = models.DecimalField(max_digits=CHARACTER_STAT_DIGITS, decimal_places=CHARACTER_STAT_DECIMALS, default=0)
+    date_created = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.name

@@ -4,9 +4,9 @@ from .routers import router
 from django.views import generic
 from app.core.views import home
 
-admin.site.site_header = "Mythic Game"
-admin.site.site_title = "Mythic Admin Portal"
-admin.site.index_title = "Welcome to the System Administration Portal"
+admin.site.site_header = "Derelict Administration"
+admin.site.site_title = "Derelict Admin Portal"
+admin.site.index_title = "Welcome to the Derelict Game Administration Portal"
 
 urlpatterns = [
  path('', home, name='home'),
