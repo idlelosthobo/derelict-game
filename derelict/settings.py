@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     'rest_framework',
     'crispy_forms',
+    'channels',
 ]
 
 # Derelict Application Definition
@@ -94,6 +95,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'derelict.wsgi.application'
 
+ASGI_APPLICATION = 'derelict.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
