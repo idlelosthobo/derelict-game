@@ -21,7 +21,7 @@ class Message(models.Model):
         ('dir', 'Direct'),
         ('cha', 'Channel'),
         ('org', 'Organize'),
-        ('tra', 'Trade'),
+        ('mar', 'Market'),
         ('glo', 'Global'),
         ('sys', 'System'),
     )

@@ -4,8 +4,8 @@
 }
 
 .ui-full {
-    width: 100%;
-    height: 100%
+    width: 100vw;
+    height: 100vh;
 }
 
 .ui-main {
@@ -13,11 +13,11 @@
 }
 
 .ui-game {
-    height: 60%
+    height: 60vh;
 }
 
 .ui-chat {
-    height: 40%
+    height: 40vh;
 }
 
 
@@ -25,7 +25,7 @@
     height: 45px;
 }
 
-/* 4px offset for padding error in bootstrap */
+/* 13px offset for padding error in bootstrap */
 .ui-message-display {
-    height: calc(100% - 49px);
+    height: calc(40vh - 58px);
 }

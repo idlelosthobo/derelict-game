@@ -1,43 +1,52 @@
-const vm = new Vue({
+const app = new Vue({
     el: '#app',
     data: {
         results: [],
-        message_input: ''
-    },
-    mounted() {
-        setInterval(() => {
-            axios.get("http://127.0.0.1:8000/api/message/")
-                .then(response => {
-                    this.results = response.data
-                })
-        }, 2000);
+        message_input: '',
+        websocket_message: '',
+        websocket_logs: [],
+        websocket_status: "disconnected",
     },
     methods: {
-        get_messages() {
-            axios.get("http://127.0.0.1:8000/api/message/")
-                .then(response => {
-                    this.results = response.data
-                })
-        },
-        send_message() {
-            send_message = this.message_input;
-            this.message_input = '';
-            axios.post("http://127.0.0.1:8000/api/message/", {
-                type: "dir",
-                message: send_message,
-                user: 1,
-                character: null,
-                to_user: null,
-                to_character: null,
-                channel: null
-            }).then(response => {
-                axios.get("http://127.0.0.1:8000/api/message/")
-                    .then(response => {
-                        this.results = response.data
+        websocket_connect() {
+            this.socket = new WebSocket("ws://127.0.0.1:8000/ws/echo/");
+            this.socket.onopen = () => {
+                this.websocket_status = "connected";
+                this.websocket_logs.push({event: "Connected to", data: 'ws://127.0.0.1:8000/ws/echo/'})
+                this.socket.onmessage = ({ data }) => {
+                    this.results = JSON.parse(data)
+                    this.websocket_logs.push({ event: "Recieved message", data });
+                    this.$nextTick(() => {
+                        this.scrollToEnd()
                     })
-            })
-        }
-    }
+                };
 
+            };
+        },
+        websocket_disconnect() {
+            this.socket.close();
+            this.websocket_status = "disconnected";
+            this.websocket_logs = [];
+        },
+        websocket_send_message() {
+            var send_message = this.message_input;
+            this.message_input = '';
+            this.socket.send(
+                JSON.stringify({
+                    "action": "get_messages",
+                    "message": send_message
+                })
+            );
+            this.websocket_logs.push({ event: "Sent message", data: this.websocket_message });
+            this.websocket_message = "";
+        },
+        scrollToEnd: function() {
+            var container = this.$el.querySelector("#message_display");
+            container.scrollTop = container.scrollHeight;
+        },
+    },
+    mounted() {
+        this.websocket_connect()
+    },
 });
 

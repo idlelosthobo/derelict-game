@@ -31,5 +31,5 @@ urlpatterns += [
 
 # Other
 urlpatterns += [
-    path('palette/', generic.TemplateView.as_view(template_name='palette.html')),
+    path('test/websocket/', generic.TemplateView.as_view(template_name='test/websocket_test.html')),
 ]

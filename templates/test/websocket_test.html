@@ -1,0 +1,27 @@
+{% extends 'core/page.html' %}
+
+{% load static %}
+
+{% block page_content %}
+
+    <button @click="websocket_disconnect" v-if="websocket_status === 'connected'" class="m-3">Disconnect</button>
+    <button @click="websocket_connect" v-if="websocket_status === 'disconnected'" class="m-3">Connect</button> {{ status }}
+
+    <div v-if="websocket_status === 'connected'" class="mx-3">
+        <form @submit.prevent="websocket_sendMessage" action="#">
+            <input v-model="websocket_message" class="mr-3">
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <ul id="websocket_logs" class="mt-3">
+        <li v-for="log in websocket_logs" class="log" style=" color: #FFF; ">
+            {| log.event |}: {| log.data |}
+        </li>
+    </ul>
+
+{% endblock %}
+
+{% block js_include %}
+    <script src="{% static 'js/ui.js' %}"></script>
+{% endblock %}

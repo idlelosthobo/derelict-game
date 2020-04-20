@@ -1,7 +1,7 @@
-<div class="card {{ card_class }}">
+<div id="{{ card_id }}" class="card {{ card_class }}">
         {% block card_main_image %}{% endblock %}
         {% block card_main_title %}{% endblock %}
-    <div class="card-body pt-1 pb-1 {{ card_content_class }}">
+    <div id="{{ card_content_id }}" class="card-body pt-1 pb-1 {{ card_content_class }}">
         {% block card_content %}{% endblock %}
     </div>
 </div>

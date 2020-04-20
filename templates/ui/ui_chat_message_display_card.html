@@ -3,9 +3,14 @@
 {% block card_content %}
     <div class="row p-0 mb-1" v-for="result in results">
         <div class="col-12 p-0 m-0">
-            <div class="card p-1 bg-light">
-                { result.user }:
-                { result.message }
+            <div v-if=" result.fields.type === 'dir'" class="card p-0 bg-light text-primary">
+                {| result.fields.user |}: {| result.fields.message |}
+            </div>
+            <div v-if=" result.fields.type === 'mar'" class="card p-0 bg-light text-warning">
+                Market - {| result.fields.user |}: {| result.fields.message |}
+            </div>
+            <div v-if=" result.fields.type === 'glo'" class="card p-0 bg-light text-success">
+                Global - {| result.fields.user |}: {| result.fields.message |}
             </div>
         </div>
     </div>
