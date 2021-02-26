@@ -102,13 +102,8 @@ ASGI_APPLICATION = 'derelict.routing.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'development_derelict',
-        'USER': 'derelictaccess',
-        'PASSWORD': 'yfrioa1j5176mqwr',
-        'HOST': 'db-mysql-tor1-30973-do-user-6683175-0.db.ondigitalocean.com',
-        'PORT': '25060',
-    }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',   }
 }
 
 # Email Settings
